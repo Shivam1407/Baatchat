@@ -21,4 +21,4 @@ export const upsertStreamUser = async (userData) => {
 }
 // todo: do it later
 //channel banane ke liye use hoga (jaise 1-on-1 ya group chat ke liye).
-export const generateStreamChannel = (userId) => {}
+export const generateStreamChannel = (userId) => {}giygyg
