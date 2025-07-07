@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "",
     },
-    nativeLangugage: {
+    nativeLanguage: {
         type: String,
         default: "",
     },

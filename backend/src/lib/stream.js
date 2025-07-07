@@ -18,7 +18,16 @@ export const upsertStreamUser = async (userData) => {
     } catch (error) {
         console.error("Error upserting Stream user:", error);
     }
-}
-// todo: do it later
+};
+
 //channel banane ke liye use hoga (jaise 1-on-1 ya group chat ke liye).
-export const generateStreamChannel = (userId) => {}giygyg
+export const generateStreamChannel = (userId) => {
+    try {
+        // ensure userId is a string
+        const userIdStr = userId.toString();
+        return streamClient.createToken(userIdStr);
+
+    } catch(error){
+        console.error("Error generating Stream token:",error);
+    }
+}
