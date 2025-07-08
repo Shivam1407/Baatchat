@@ -21,13 +21,13 @@ export const upsertStreamUser = async (userData) => {
 };
 
 //channel banane ke liye use hoga (jaise 1-on-1 ya group chat ke liye).
-export const generateStreamChannel = (userId) => {
+export const generateStreamToken = (userId) => {
     try {
         // ensure userId is a string
         const userIdStr = userId.toString();
         return streamClient.createToken(userIdStr);
 
-    } catch(error){
+    } catch(error){ 
         console.error("Error generating Stream token:",error);
     }
 }
