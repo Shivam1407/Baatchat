@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { MessageCircleIcon } from "lucide-react"; // change this line
 import { Link } from 'react-router';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { signup } from '../lib/api';
+import useSignUp from '../hooks/useSignUp';
 
 const SignUpPage = () => {
     const [signupData, setSignupData] = useState({
@@ -10,12 +9,15 @@ const SignUpPage = () => {
         email: "",
         password: "",
     });
-    const queryClient = useQueryClient();
-    const { mutate: signupMutation, isPending, error } = useMutation({
-        mutationFn: signup,
-        onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
-    })
+    //This is how we did it first version , without using our custom hook
+    // const queryClient = useQueryClient();
+    // const { mutate: signupMutation, isPending, error } = useMutation({
+    //     mutationFn: signup,
+    //     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
+    // })
 
+    // This is how we did it using our custom hook - optimised version
+    const { isPending, error, signupMutation } = useSignUp()
     const handleSignup = (e) => {
         e.preventDefault();
         signupMutation(signupData);
@@ -30,7 +32,7 @@ const SignUpPage = () => {
                     <div className='mb-4 flex items-center justify-start gap-2'>
                         <MessageCircleIcon className="size-9 text-primary" />
                         <span className='text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider'>
-                            BaatChat
+                            VibeChat
                         </span>
                     </div>
                     {/* Error Message if any */}

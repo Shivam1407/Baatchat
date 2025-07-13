@@ -39,7 +39,7 @@ export async function sendFriendRequest(req,res){
          const {id: recipientId} = req.params;
 
          //prevent sending friend request to yourself
-         if(myId === friendId){
+         if(myId === recipientId){
             return res.status(400).json({message: "You cannot send a friend request to yourself"});
          }
 
@@ -70,7 +70,7 @@ export async function sendFriendRequest(req,res){
             sender: myId,
             recipient: recipientId,
         });
-        
+        await friendRequest.save();
         res.status(201).json(friendRequest);
 
 
