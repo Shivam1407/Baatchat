@@ -49,10 +49,10 @@ const Sidebar = () => {
             </nav>
 
             <div className="p-4 border-t border-base-300 mt-auto">
-                <div className="flex flex-col items-center lg:flex-row lg:items-center gap-3">
+                <Link to="/profile" className="flex flex-col items-center lg:flex-row lg:items-center gap-3 cursor-pointer">
                     <div className="avatar">
                         <div className="w-10 rounded-full">
-                            <img src={authUser?.profilePic} alt="User Avatar" />
+                            <img src={authUser?.profilePic} alt="User Avatar" loading="lazy" />
                         </div>
                     </div>
                     <div className="hidden lg:block">
@@ -62,7 +62,7 @@ const Sidebar = () => {
                             Online
                         </p>
                     </div>
-                </div>
+                </Link>
             </div>
         </aside>
     );

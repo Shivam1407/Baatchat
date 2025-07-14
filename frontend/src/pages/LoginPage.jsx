@@ -61,6 +61,15 @@ const LoginPage = () => {
                                     </p>
                                 </div>
 
+                                {/* Demo Credentials Box */}
+                                <div className="bg-base-200 border border-primary/40 rounded-lg p-3 my-2 text-center">
+                                    <div className="font-semibold mb-1">Demo Account</div>
+                                    <div className="text-sm">
+                                        <span className="font-mono">Email:</span> <span className="font-mono bg-base-100 rounded px-1">check@gmail.com</span><br />
+                                        <span className="font-mono">Password:</span> <span className="font-mono bg-base-100 rounded px-1">checker</span>
+                                    </div>
+                                </div>
+
                                 <div className="flex flex-col gap-3">
                                     <div className="form-control w-full space-y-2">
                                         <label className="label">
